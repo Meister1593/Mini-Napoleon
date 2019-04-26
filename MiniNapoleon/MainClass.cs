@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace MiniNapoleon
 {
-    static class Program
+    static class MainClass
     {
         /// <summary>
         /// Главная точка входа для приложения.
@@ -16,7 +16,8 @@ namespace MiniNapoleon
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
+
         }
     }
 }
