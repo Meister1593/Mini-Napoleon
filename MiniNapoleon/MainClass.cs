@@ -10,6 +10,7 @@ namespace MiniNapoleon
     {
         /// <summary>
         /// Главная точка входа для приложения.
+        /// 87 
         /// </summary>
         [STAThread]
         static void Main()
@@ -17,7 +18,6 @@ namespace MiniNapoleon
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
-
         }
     }
 }

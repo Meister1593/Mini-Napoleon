@@ -9,6 +9,7 @@
 
         /// <summary>
         /// Освободить все используемые ресурсы.
+        /// 90 
         /// </summary>
         /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
         protected override void Dispose(bool disposing)
@@ -25,6 +26,7 @@
         /// <summary>
         /// Требуемый метод для поддержки конструктора — не изменяйте 
         /// содержимое этого метода с помощью редактора кода.
+        /// 53 
         /// </summary>
         private void InitializeComponent()
         {
@@ -33,6 +35,8 @@
             this.DecryptButton = new System.Windows.Forms.Button();
             this.DecryptTextbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.OpenCodeTable = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // EncryptButton
@@ -71,26 +75,48 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(347, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Введите текст используя латинские буквы, без W,X,Y,K символов";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 6;
+            // 
+            // OpenCodeTable
+            // 
+            this.OpenCodeTable.Location = new System.Drawing.Point(12, 77);
+            this.OpenCodeTable.Name = "OpenCodeTable";
+            this.OpenCodeTable.Size = new System.Drawing.Size(371, 23);
+            this.OpenCodeTable.TabIndex = 5;
+            this.OpenCodeTable.Text = "Открыть таблицу с кодами";
+            this.OpenCodeTable.UseVisualStyleBackColor = true;
+            this.OpenCodeTable.Click += new System.EventHandler(this.OpenCodeTable_Click);
+            // 
+            // label2
+            //
+            //115 
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(63, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(282, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Введите сообщение без пробелов и знаков K, W, X, Y";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // MainForm
+            //
+            //
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 84);
+            this.ClientSize = new System.Drawing.Size(394, 112);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.OpenCodeTable);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DecryptTextbox);
             this.Controls.Add(this.DecryptButton);
             this.Controls.Add(this.EncryptTextbox);
             this.Controls.Add(this.EncryptButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.Text = "Малый Наполеон";
             this.ResumeLayout(false);
@@ -105,6 +131,8 @@
         private System.Windows.Forms.Button DecryptButton;
         private System.Windows.Forms.TextBox DecryptTextbox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button OpenCodeTable;
+        private System.Windows.Forms.Label label2;
     }
 }
 

@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 
 namespace MiniNapoleon
 {
+    //23 6
     public class CharProcessingUnit
     {
+        // Таблица соответсвий буквы и кода
+        // 53
+        // Символ и код имеют одинаковый индекс между таблицами
         private string[] napoleonStrings =
         {
-            "A", "B", "C", "D", "E", "F", "G", "H", "I", "L",
+            "A", "B", "C", "D", "E", "F", "G", "H", "I", "J" ,"L",
             "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",
             "Z", "ar", "bu", "ca", "de", "es", "fa", "ga", "hi", "jai",
             "lu", "ma", "ne", "ot", "po", "que", "ra", "sa", "ti", "ve",
@@ -21,7 +25,7 @@ namespace MiniNapoleon
 
         private int[] napoleonInts =
         {
-            15, 37, 6, 23, 53, 55, 81, 85, 119, 96,
+            15, 37, 6, 23, 53, 55, 81, 85, 119, 87, 96,
             114, 115, 90, 137, 173, 169, 167, 176, 138,
             164, 166, 25, 3, 32, 52, 82, 69, 51, 77,
             122, 103, 107, 94, 153, 152, 136, 146, 171, 145,
@@ -31,7 +35,7 @@ namespace MiniNapoleon
 
         /*
          *Этот кусок принадлежит шифратору
-         *intFromString != 0 Говорит о том, что у нас нашёлся символ из таблицы и можно подставлять без опаски
+         *intFromString != 0 Говорит о том, что у нас нашёлся символ из таблицы и можно подставлять
          *Программа ставит в конец наш код и удаляет символ в начале с помощью StringBuilder
          */
         public StringBuilder TextToInts(string inputText)
@@ -82,7 +86,6 @@ namespace MiniNapoleon
         }
 
         /*
-         *Этот кусок принадлежит дешифратору
          *Тут перевод из цифрового представления в символьное (дешифратор)
          *Принцип очень схож с шифрованием, за исключением того, что учитываются пробелы между кодами
          *Вместо 0 , stringFromInt использует знак / , не присутствующий в таблице.
@@ -95,13 +98,13 @@ namespace MiniNapoleon
             {
                 outputString.Remove(0, 1);
             }
+
             for (int i = 0; i < inputInts.Split(' ').Length; i++)
             {
                 string stringFromInt = ReturnStringFromInt(outputString[0].ToString());
                 if (stringFromInt != "/" && outputString[1].ToString() == " ")
                 {
                     outputString.Append(stringFromInt);
-                    outputString.Append(" ");
                     outputString.Remove(0, 2);
                     continue;
                 }
@@ -113,7 +116,6 @@ namespace MiniNapoleon
                         outputString[2].ToString() == " ")
                     {
                         outputString.Append(stringFromInt);
-                        outputString.Append(" ");
                         outputString.Remove(0, 3);
                         continue;
                     }
@@ -127,7 +129,6 @@ namespace MiniNapoleon
                         outputString[2].ToString() != " ")
                     {
                         outputString.Append(stringFromInt);
-                        outputString.Append(" ");
                         outputString.Remove(0, 4);
                         continue;
                     }
@@ -171,4 +172,5 @@ namespace MiniNapoleon
             return output;
         }
     }
+    //15 87
 }
