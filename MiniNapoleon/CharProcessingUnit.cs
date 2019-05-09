@@ -40,6 +40,7 @@ namespace MiniNapoleon
          */
         public StringBuilder TextToInts(string inputText)
         {
+            inputText = inputText.Trim();
             StringBuilder outputString = new StringBuilder(inputText);
             if (outputString[0].ToString() == " ")
             {
@@ -82,6 +83,7 @@ namespace MiniNapoleon
                 }
             }
 
+            outputString.Remove(outputString.Length - 1, 1);
             return outputString;
         }
 
@@ -93,16 +95,19 @@ namespace MiniNapoleon
          */
         public StringBuilder IntsToText(string inputInts)
         {
+            inputInts = inputInts.Trim();
             StringBuilder outputString = new StringBuilder(inputInts);
             if (outputString[0].ToString() == " ")
             {
                 outputString.Remove(0, 1);
             }
 
+            
+            outputString.Append(" ");
             for (int i = 0; i < inputInts.Split(' ').Length; i++)
             {
                 string stringFromInt = ReturnStringFromInt(outputString[0].ToString());
-                if (stringFromInt != "/" && outputString[1].ToString() == " ")
+                if (stringFromInt != "/" && stringFromInt != " " && outputString[1].ToString() == " " )
                 {
                     outputString.Append(stringFromInt);
                     outputString.Remove(0, 2);
@@ -112,8 +117,7 @@ namespace MiniNapoleon
                 if (i + 1 < inputInts.Length)
                 {
                     stringFromInt = ReturnStringFromInt(outputString[0].ToString() + outputString[1].ToString());
-                    if (stringFromInt != "/" && outputString[1].ToString() != " " &&
-                        outputString[2].ToString() == " ")
+                    if (stringFromInt != "/" && stringFromInt != " " && outputString[1].ToString() != " " && outputString[2].ToString() == " ")
                     {
                         outputString.Append(stringFromInt);
                         outputString.Remove(0, 3);
@@ -125,8 +129,8 @@ namespace MiniNapoleon
                 {
                     stringFromInt = ReturnStringFromInt(outputString[0].ToString() + outputString[1].ToString() +
                                                         outputString[2].ToString());
-                    if (stringFromInt != "/" && outputString[1].ToString() != " " &&
-                        outputString[2].ToString() != " ")
+                    if (stringFromInt != "/" && stringFromInt != " " && outputString[1].ToString() != " " &&
+                        outputString[2].ToString() != " " && outputString[3].ToString() == " ")
                     {
                         outputString.Append(stringFromInt);
                         outputString.Remove(0, 4);
